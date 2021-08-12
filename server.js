@@ -18,7 +18,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workoutDB", {
     useFindAndModify: false,
 });
 
-// routes
 app.get("/exercise", (req, res) => {
     res.sendFile(path.join(__dirname, "public/exercise.html"));
 });
@@ -26,7 +25,6 @@ app.get("/stats", (req, res) => {
     res.sendFile(path.join(__dirname, "public/stats.html"));
 });
 
-// Deals with Data
 app.use(require("./routes/api.js"));
 
 app.listen(PORT, () => {
